@@ -3,40 +3,50 @@ package main
 import "fmt"
 
 func calculate(s string) int {
-	sign := 1
 	res := 0
-	i := 0
-	sli := []int{1}
-	for i < len(s) {
-		if s[i] == ' ' {
-			i++
-		} else if s[i] == '+' {
-			sign = sli[len(sli)-1]
-			i++
-		} else if s[i] == '-' {
-			sign = -sli[len(sli)-1]
-			i++
-		} else if s[i] == '(' {
-			sli = append(sli, sign)
-			i++
-		} else if s[i] == ')' {
-			sli = sli[:len(sli)-1]
-			i++
+	preSign := '+'
+	n := len(s)
+	num := 0
+	var stack []int
+	var isNumber = func(char uint8) bool {
+		if char-'0' >= 0 && char-'0' <= 9 {
+			return true
 		} else {
-			number := 0
-			for i < len(s) && s[i]-'0' <= 9 && s[i]-'0' >= 0 {
-				number = number*10 + int(s[i]-'0')
-				i++
-			}
-			res += number * sign
+			return false
 		}
+	}
+	for i := 0; i < n; i++ {
+		if isNumber(s[i]) {
+			num = num*10 + int(s[i]-'0')
+		}
+		if !isNumber(s[i]) && s[i] != ' ' || i == n-1 {
+			switch preSign {
+			case '+':
+				stack = append(stack, num)
+				break
+			case '-':
+				stack = append(stack, -num)
 
+				break
+			case '*':
+				stack[len(stack)-1] *= num
+				break
+			case '/':
+				stack[len(stack)-1] /= num
+				break
+			}
+			preSign = int32(s[i])
+			num = 0
+		}
+	}
+	for _, value := range stack {
+		res += value
 	}
 	return res
 }
 func main() {
 
-	s := "- (3 + (4 + 5))"
+	s := "- 3"
 	res := calculate(s)
 	fmt.Println(res)
 }
