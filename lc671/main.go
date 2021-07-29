@@ -15,9 +15,7 @@ func findSecondMinimumValue(root *TreeNode) int {
 	if root.Left == nil {
 		return -1
 	}
-	if root.Left.Val == root.Right.Val {
-		return -1
-	}
+
 	ans := math.MaxInt64
 	var dfs func(*TreeNode)
 	dfs = func(node *TreeNode) {
