@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	s := "abb"
@@ -10,31 +13,27 @@ func main() {
 
 func permuteUnique(s string) []string {
 	var result []string
-	var walk func(arr []int32, first int, length int)
-	walk = func(arr []int32, first int, length int) {
+	var walk func(s string, first int, length int)
+	walk = func(s string, first int, length int) {
 		if first == length {
-			newArr := make([]int32, length)
-			copy(newArr, arr)
-			result = append(result, string(newArr))
-			return
+			result = append(result, s)
 		}
-		myMap := make(map[int32]int32)
+		myMap := make(map[byte]bool)
 		for i := first; i < length; i++ {
-			value, ok := myMap[arr[i]]
-			if ok || value > 0 {
+			if res := myMap[s[i]]; res {
 				continue
 			}
-			myMap[arr[i]] = 1
-			arr[first], arr[i] = arr[i], arr[first]
-			walk(arr, first+1, length)
-			arr[first], arr[i] = arr[i], arr[first]
+			myMap[s[i]] = true
+			Arr := make([]string, 0)
+			for j := 0; j < len(s); j++ {
+				Arr = append(Arr, string(s[j]))
+			}
+			Arr[first], Arr[i] = Arr[i], Arr[first]
+			S := strings.Join(Arr, "")
+			walk(S, first+1, length)
 		}
 
 	}
-	var charArr []int32
-	for _,value := range s {
-		charArr = append(charArr,value)
-	}
-	walk(charArr, 0, len(charArr))
+	walk(s, 0, len(s))
 	return result
 }
