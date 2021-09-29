@@ -26,42 +26,42 @@ func pathSum(root *TreeNode, targetSum int) int {
 	return res
 }
 func main() {
-	//node := &TreeNode{
-	//	Val: 10,
 	node := &TreeNode{
-		Val: 5,
+		Val: 10,
 		Left: &TreeNode{
-			Val: 3,
+			Val: 5,
 			Left: &TreeNode{
-				Val:   3,
-				Left:  nil,
-				Right: nil,
+				Val: 3,
+				Left: &TreeNode{
+					Val:   3,
+					Left:  nil,
+					Right: nil,
+				},
+				Right: &TreeNode{
+					Val:   -2,
+					Left:  nil,
+					Right: nil,
+				},
 			},
 			Right: &TreeNode{
-				Val:   -2,
-				Left:  nil,
-				Right: nil,
+				Val:  2,
+				Left: nil,
+				Right: &TreeNode{
+					Val:   1,
+					Left:  nil,
+					Right: nil,
+				},
 			},
 		},
 		Right: &TreeNode{
-			Val:  2,
+			Val:  -3,
 			Left: nil,
 			Right: &TreeNode{
-				Val:   1,
+				Val:   11,
 				Left:  nil,
 				Right: nil,
 			},
 		},
 	}
-	//Right: &TreeNode{
-	//	Val:  -3,
-	//	Left: nil,
-	//	Right: &TreeNode{
-	//		Val:   11,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//},
-	//}
 	pathSum(node, 8)
 }
