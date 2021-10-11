@@ -41,25 +41,6 @@ func QuickSort(arr []int, left, right int) {
 	QuickSort(arr, pivot+1, right)
 }
 
-//func findLaskK(arr []int, k int) int {
-//	var walk func(arr []int, left int, right int, k int) int
-//	walk = func(arr []int, left int, right int, k int) int {
-//		if left >= right || len(arr) <= 1 {
-//			return arr[left]
-//		}
-//		pivot := findPivot(arr, left, right)
-//		if pivot+1 == k {
-//			return arr[pivot]
-//		} else if pivot+1 < k {
-//			return walk(arr, pivot+1, right, k)
-//		} else {
-//			return walk(arr, left, pivot-1, k)
-//		}
-//
-//	}
-//	return walk(arr, 0, len(arr)-1, k)
-//
-//}
 func findPivot(arr []int, left int, right int) int {
 	pivot := arr[left]
 	for left < right {
