@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="GO-211.7142.13">
+  <component name="dataSourceStorageLocal" created-in="GO-211.7442.57">
     <data-source name="@localhost" uuid="e4656dcf-d9ba-41bd-baf5-6196a36ad9e8">
       <database-info product="MySQL" version="5.7.34" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="5.7.34" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
