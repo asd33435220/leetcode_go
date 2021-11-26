@@ -1,24 +1,28 @@
 package main
 
-import "fmt"
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
-func search(nums []int, target int) int {
-	left := 0
-	right := len(nums) - 1
-	for left <= right {
-		mid := (right-left)/2 + left
-		if nums[mid] == target {
-			return mid
-		} else if nums[mid] < target {
-			left = mid + 1
+func searchBST(root *TreeNode, val int) (ans *TreeNode) {
+	var walk func(node *TreeNode)
+	walk = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+		if node.Val == val {
+			ans = node
+			return
+		} else if node.Val > val {
+			walk(node.Left)
 		} else {
-			right = mid - 1
+			walk(node.Right)
 		}
 	}
-	return -1
+	walk(root)
+	return
 }
 func main() {
-	nums := []int{2, 9}
-	res := search(nums, 9)
-	fmt.Println("res", res)
 }
