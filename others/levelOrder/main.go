@@ -12,16 +12,16 @@ func main() {
 	root := &TreeNode{
 		Val: 1,
 		Left: &TreeNode{
-			Val:   2,
-			Left:  &TreeNode{
-				Val: 4,
-				Left: nil,
+			Val: 2,
+			Left: &TreeNode{
+				Val:   4,
+				Left:  nil,
 				Right: nil,
 			},
 			Right: nil,
 		},
 		Right: &TreeNode{
-			Val: 3,
+			Val:  3,
 			Left: nil,
 			Right: &TreeNode{
 				Val:   5,
@@ -49,7 +49,7 @@ func levelOrder(root *TreeNode) [][]int {
 	for len(queue) > 0 {
 		thisNode := queue[0]
 		queue = queue[1:]
-		if len(result)<=thisNode.Level {
+		if len(result) <= thisNode.Level {
 			arr := make([]int, 1)
 			arr[0] = thisNode.Node.Val
 			result = append(result, arr)

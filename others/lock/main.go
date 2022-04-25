@@ -20,7 +20,7 @@ func count(resource, result chan int, exit chan bool) {
 				break
 			}
 		}
-		if flag && count > 2  {
+		if flag && count > 2 {
 			result <- count
 		}
 	}

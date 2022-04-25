@@ -1,7 +1,7 @@
 package main
 
 import (
-	Heap "../heap"
+	Heap "../others/heap"
 	"fmt"
 	"sort"
 )

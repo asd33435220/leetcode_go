@@ -24,11 +24,11 @@ func findPiovt(arr []int, left, right int) int {
 		for left < right && pivot <= arr[right] {
 			right--
 		}
-		arr[left],arr[right] = arr[right],arr[left]
+		arr[left], arr[right] = arr[right], arr[left]
 		for left < right && pivot >= arr[left] {
 			left++
 		}
-		arr[left],arr[right] = arr[right],arr[left]
+		arr[left], arr[right] = arr[right], arr[left]
 	}
 	return left
 }
