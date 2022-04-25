@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	mySlice := []int{1,2,3,4,2}
-	result:=findRepeatNumber(mySlice)
+	mySlice := []int{1, 2, 3, 4, 2}
+	result := findRepeatNumber(mySlice)
 	fmt.Println(result)
 }
 func findRepeatNumber(nums []int) int {

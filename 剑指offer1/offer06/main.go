@@ -16,8 +16,8 @@ func reversePrint(head *ListNode) []int {
 	head = reverseList(head)
 	var arr []int
 	thisNode := head
-	for thisNode!=nil {
-		arr = append(arr,thisNode.Val)
+	for thisNode != nil {
+		arr = append(arr, thisNode.Val)
 		thisNode = thisNode.Next
 	}
 	return arr
@@ -26,7 +26,7 @@ func reverseList(head *ListNode) *ListNode {
 	thisNode := head
 	var prev *ListNode = nil
 	var nextNode *ListNode = nil
-	for thisNode!=nil {
+	for thisNode != nil {
 		nextNode = thisNode.Next
 		thisNode.Next = prev
 		prev = thisNode
